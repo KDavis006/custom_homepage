@@ -1,23 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState}  from 'react';
 
 const GoogleSearchBar = () => {
  const [searchTerm, setSearchTerm] = useState('');
  const [searchHistory, setSearchHistory] = useState([]);
  const [filteredSearchHistory, setFilteredSearchHistory] = useState([]);
 
- useEffect(() => {
-    const savedSearchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
-    setSearchHistory(savedSearchHistory);
- }, []);
-
- useEffect(() => {
-    localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
- }, [searchHistory]);
-
  const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
-    setFilteredSearchHistory(searchHistory.filter(search => search.toLowerCase().includes(event.target.value.toLowerCase())));
- };
+    if(event.target.value === ''){
+      setFilteredSearchHistory([]);
+    } else {
+      setFilteredSearchHistory(searchHistory.filter(search => search.toLowerCase().includes(event.target.value.toLowerCase())));
+    }
+ }; 
 
  const handleSearch = () => {
     if (searchTerm.trim() !== '') {
@@ -36,23 +31,21 @@ const GoogleSearchBar = () => {
  };
 
  return (
-    <div className='container'>
-      <input
-        type="text"
-        placeholder="Search Google"
-        value={searchTerm}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyPress}
-      />
-        <button className='btn' onClick={handleSearch}>Search</button>
-      {filteredSearchHistory.length > 0 && (
-        <ul>
-          {filteredSearchHistory.map((search, index) => (
-            <li key={index}>{search}</li>
-          ))}
-        </ul>
-      )}
-    </div>
+  <div className="autocomplete-search-box">
+    <input 
+      type="text" 
+      className="search-box" 
+      placeholder="Google Search"
+      onChange={handleInputChange}
+      onKeyDown={handleKeyPress}
+      value={searchTerm}
+    />
+    <ul className="search-result">
+      {filteredSearchHistory.map((search, index) => (
+        <li key={index}>{search}</li>
+      ))}
+    </ul>
+  </div>
  );
 };
 
