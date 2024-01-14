@@ -2,6 +2,7 @@ import React from 'react'
 import GoogleSearchBar from './Components/GoogleSearchBar'
 import SpotifyWidget from './Components/SpotifyWidget'
 import Nav from './Components/Nav'
+import TodoList from './Components/ToDoList'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <div className="spotifyContainer">
         <SpotifyWidget />
       </div>
+      <TodoList />
     </div>
   )
 }
