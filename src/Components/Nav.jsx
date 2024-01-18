@@ -59,23 +59,15 @@ const Nav = () => {
           <ul>
             <li>
               {/* <NavLink to="/">Home</NavLink> */}
-              <a href=""><button>GitHub</button></a>
+              <a href="https://github.com/KDavis006?tab=repositories" target='_blank' rel="noreferrer"><button>GitHub</button></a>
             </li>
             <li>
               {/* <NavLink to="/blog">Blog</NavLink> */}
-              <a href=""><button>Google Chat</button></a>
+              <a href="https://mail.google.com/chat/u/0/#chat/home" target='_blank' rel="noreferrer"><button>Google Chat</button></a>
             </li>
             <li>
               {/* <NavLink to="/projects">Projects</NavLink> */}
-              <a href=""><button>OneLogin</button></a>
-            </li>
-            <li>
-              {/* <NavLink to="/about">About</NavLink> */}
-              <a href=""><button></button></a>
-            </li>
-            <li>
-              {/* <NavLink to="/contact">Contact</NavLink> */}
-              <a href=""><button></button></a>
+              <a href="https://west-mec.onelogin.com/portal" target='_blank' rel="noreferrer"><button>OneLogin</button></a>
             </li>
           </ul>
         </div>
